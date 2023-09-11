@@ -1,0 +1,162 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+:root {
+  --text-color: white;
+  --bg-url: url(./Assets/bg-mobile.png);
+  --stroke-color: rgba(255, 255, 255, 0.5);
+  --surface-color: rgba(255, 255, 255, 0.1);
+  --surface-color-hover: rgba(0, 0, 0, 0.02);
+  --highlight-color: rgba(255, 255, 255, 0.2);
+  --switch-bg-url: url(./Assets/moon-stars.svg);
+}
+.light {
+  --text-color: black;
+  --bg-url: url(./Assets/bg-mobile-light.png);
+  --stroke-color: rgba(0, 0, 0, 0.5);
+  --surface-color: rgba(0, 0, 0, 0.5);
+  --surface-color-hover: rgba(0, 0, 0, 0.2);
+  --highlight-color: rgba(0, 0, 0, 0.1);
+  --switch-bg-url: url(./Assets/sun.svg);
+}
+
+body {
+  /* background-image: url(./Assets/bg-mobile.png);
+  background-repeat: no-repeat;
+  background-position: top center;
+  background-size: cover; 
+  */
+  /*Usando como shorthand backgroud: color image repeat position/size */
+  background: var(--bg-url) no-repeat top center/cover;
+}
+body * {
+  font-family: "Inter", sans-serif;
+  color: var(--text-color);
+}
+#container {
+  width: 360px;
+  /* height: 712px; nao faz sentido usar altura na maioria das vezes */
+  margin: 56px auto 0px;
+  padding: 0 24px;
+}
+#profile {
+  text-align: center;
+  padding: 24px;
+}
+#profile img {
+  width: 112px;
+}
+#profile p {
+  /* font-size: 16px; Por padrao os navegadores ja possuem um tamanho de font de 16px
+  font-style: normal; por padrao todas ja sao normal*/
+  font-weight: 500;
+  line-height: 24px; /* 150% */
+  margin-top: 8px;
+}
+
+/* switch */
+#switch{
+  position: relative;
+  width: 64px;
+/* margin:4px auto porque o 4px vai em cima e em baixo e dos lados fica auto, usa todo a largura e fica ao meio */
+  margin: 4px auto;
+
+}
+#switch button {
+  width: 32px;
+  height: 32px;
+  background: white var(--switch-bg-url) no-repeat center;
+  border: 0;
+  border-radius: 50%;
+/* ao usar transforme, a referência de translate é a posição do próprio elemento que está sendo transformado, por isso ele usa o seu proprio meio para subir -50% e  depois usa a propriedade top para posicionar o elemento em relação ao seu relativo pegando do top dele que é a própria altura do spam, pois eu tirei o button da caixa através do index-z:1 */
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 0;
+  z-index: 1;
+}
+.light #switch button{
+  right:0;
+  left: initial;
+}
+#switch span {
+  display: block;
+  width: 64px;
+  height: 24px;
+  background: var(--surface-color);
+
+  border-radius: 9999px;
+  border: 1px solid var(--stroke-color);
+
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+
+}
+
+/* Links - Lista*/
+ul {
+  list-style: none;
+
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+
+  padding: 24px 0;
+}
+ul li a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  padding: 16px 24px;
+
+  background: var(--surface-color);
+  border: 1px solid var(--stroke-color);
+  border-radius: 8px;
+
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+
+  text-decoration: none;
+  font-weight: 500;
+
+  transition: background 0.2s;
+}
+
+/* pseudo-selector */
+ul li a:hover {
+  background: var(--surface-color-hover);
+  border: 1.5px solid var(--text-color);
+}
+
+/* social--links */
+#social-Links {
+  display: flex;
+  justify-content: center;
+
+  padding: 24px 0;
+
+  font-size: 24px;
+}
+#social-Links a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 16px;
+  border-radius: 50%;
+
+  transition: background 0.2s;
+}
+#social-Links a:hover {
+  background: var(--highlight-color);
+}
+
+/* rodapé */
+footer {
+  padding: 24 px 0;
+  text-align: center;
+  font-size: 14px;
+}
