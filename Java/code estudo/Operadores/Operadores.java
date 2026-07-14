@@ -1,4 +1,4 @@
-package Java estudo.Java.code;
+package Operadores;
 
 public class Operadores { 
     

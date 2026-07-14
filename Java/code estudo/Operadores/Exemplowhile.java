@@ -1,15 +1,19 @@
-package Java;
+package Operadores;
+
 import java.util.concurrent.ThreadLocalRandom;
 
 public class Exemplowhile {
-    public static void main(String[] args) {
+    public void comprar () {
         double mesada = 50.0;
         
         while(mesada > 0) {
             Double valorDoce = valorAleatorio();
+
             if (valorDoce > mesada)
                 valorDoce = mesada;
+
             System.out.println ("Doce do valor: " + valorDoce + " Adicionado no carrinho");
+            
             mesada = mesada - valorDoce;
         }
         
@@ -17,6 +21,7 @@ public class Exemplowhile {
         System.out.println("Anya gastou toda a sua mesada em doces");
             
 }
-private static double valorAleatorio() {
-    return ThreadLocalRandom.current().nextDouble(2,8);
+    private static double valorAleatorio() {
+        return ThreadLocalRandom.current().nextDouble(2,8);
+    }
 }
